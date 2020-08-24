@@ -6,6 +6,18 @@ function addToFocusList(text) {
     focusListElement.appendChild(newLiElement);
 }
 
-document.addEventListener('focus', function() {
-    addToFocusList(document.activeElement);
-}, true);
+// Create a connection to the background page
+var backgroundPageConnection = chrome.runtime.connect({
+    name: "devtools-page"
+});
+
+backgroundPageConnection.onMessage.addListener(function (message) {
+    // Handle responses from the background page, if any
+    addToFocusList(message);
+});
+
+// Relay the tab ID to the background page
+chrome.runtime.sendMessage({
+    tabId: chrome.devtools.inspectedWindow.tabId,
+    scriptToInject: "focusListeningContentScript.js"
+});
