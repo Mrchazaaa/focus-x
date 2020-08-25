@@ -1,5 +1,6 @@
+console.log("cheese");
 
+// document.addEventListener('focus', function() {
+//     console.log(document.activeElement);
+// }, true);
 
-document.addEventListener('focus', function() {
-    addToFocusList(document.activeElement);
-}, true);

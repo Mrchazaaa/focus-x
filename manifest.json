@@ -3,6 +3,11 @@
     "name": "focus-x",
     "version": "0.1",
     "devtools_page": "devtools.html",
+    "permissions": [
+        "activeTab",
+        "http://*/",
+        "https://*/"
+    ],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
