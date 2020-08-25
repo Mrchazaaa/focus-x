@@ -1,0 +1,21 @@
+.timestamp {
+    float: left;
+}
+
+.focusedObj {
+    float: right;
+}
+
+#focusList > div {
+    border-bottom: 1px solid lightgray;
+    overflow: auto;
+
+}
+
+#focusList > div:hover {
+    background-color: gainsboro;
+}
+
+#focusList > div:focus {
+    background-color: lightgray;
+}

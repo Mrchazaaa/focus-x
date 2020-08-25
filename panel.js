@@ -1,10 +1,36 @@
 const focusListElement = document.getElementById('focusList');
 
-function addToFocusList(text) {
-    var newLiElement = document.createElement('li');
-    newLiElement.appendChild(document.createTextNode(text))
-    focusListElement.appendChild(newLiElement);
+function addToFocusList(newEntry) {
+    var newEntryElement = document.createElement('div');
+
+    var newFocusedObjElement = document.createElement('div')
+    newFocusedObjElement.innerText = newEntry.focusedElement;
+    newFocusedObjElement.className = "focusedObj";
+
+    var newTimeStampElement = document.createElement('div');
+    newTimeStampElement.innerText = newEntry.timeStamp;
+    newTimeStampElement.className = "timestamp";
+
+    newEntryElement.appendChild(newTimeStampElement);
+    newEntryElement.appendChild(newFocusedObjElement);
+
+    focusListElement.appendChild(newEntryElement);
 }
+
+addToFocusList({
+    focusedElement: "hey im an active object",
+    timeStamp: "timestamp 1"
+});
+
+addToFocusList({
+    focusedElement: "me too",
+    timeStamp: "timestamp 2"
+});
+
+addToFocusList({
+    focusedElement: "AAAAAAAAAAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaa",
+    timeStamp: "timestamp 3"
+});
 
 console.log("panel is running");
 
