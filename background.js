@@ -8,12 +8,10 @@ chrome.runtime.onConnect.addListener(function (port) {
         // The original connection event doesn't include the tab ID of the
         // DevTools page, so we need to send it explicitly.
         if (message.tabId) {
-            console.log("got tab id from my main guy");
+            console.log("Got inspected window tab id from devtools extension page.");
             connections[message.tabId] = port;
             return;
         }
-
-	// other message handling
     }
 
     // Listen to messages sent from the DevTools page
@@ -32,8 +30,7 @@ chrome.runtime.onConnect.addListener(function (port) {
     });
 });
 
-// Receive message from content script and relay to the devTools page for the
-// current tab
+// Receive message from content script and relay to the devTools page for the current tab
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     // Messages from content scripts should have sender.tab set
     if (sender.tab) {
@@ -41,10 +38,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       if (tabId in connections) {
         connections[tabId].postMessage(request);
       } else {
-        console.log("Tab not found in connection list.");
+        console.log("Tab not found in connections list.");
       }
     } else {
-      console.log("sender.tab not defined.");
+      console.log("Sender.tab not defined.");
     }
     return true;
 });

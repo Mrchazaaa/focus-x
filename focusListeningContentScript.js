@@ -4,7 +4,7 @@ function sendMessageToBackgroundScript() {
     chrome.runtime.sendMessage(
         {
             focusedElement: document.activeElement,
-            text: "hey"
+            timeStamp: (new Date()).toLocaleTimeString()
         }, 
         function(response) {
             console.log("Response: ", response);
