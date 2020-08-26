@@ -1,7 +1,6 @@
 const focusListElement = document.getElementById('focusList');
 
-console.log(); // default or dark
-
+// default or dark
 if (chrome.devtools.panels.themeName == "dark") 
 {
     document.documentElement.setAttribute("theme", "dark");
@@ -37,13 +36,9 @@ var backgroundConnection = chrome.runtime.connect({
 
 backgroundConnection.onMessage.addListener(function (message) {
     // Handle responses from the background page, if any
-    console.log("recived message");
-    console.log(message);
     addToFocusList(message);
-    console.log(chrome.devtools); // default or dark
 });
 
-console.log("sending message to background guy");
 backgroundConnection.postMessage(
 {
     tabId: chrome.devtools.inspectedWindow.tabId,

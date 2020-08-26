@@ -3,12 +3,9 @@ var connections = {};
 chrome.runtime.onConnect.addListener(function (port) {
 
     var extensionListener = function (message, sender, sendResponse) {
-        console.log("dev message got");
-
         // The original connection event doesn't include the tab ID of the
         // DevTools page, so we need to send it explicitly.
         if (message.tabId) {
-            console.log("Got inspected window tab id from devtools extension page.");
             connections[message.tabId] = port;
             return;
         }
@@ -37,11 +34,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       var tabId = sender.tab.id;
       if (tabId in connections) {
         connections[tabId].postMessage(request);
-      } else {
-        console.log("Tab not found in connections list.");
       }
-    } else {
-      console.log("Sender.tab not defined.");
     }
     return true;
 });
