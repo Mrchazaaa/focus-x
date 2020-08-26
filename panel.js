@@ -43,7 +43,7 @@ backgroundConnection.onMessage.addListener(function (message) {
     // Handle responses from the background page, if any
     console.log("recived message");
     console.log(message);
-    addToFocusList(message.focusedElement);
+    addToFocusList(message);
 });
 
 console.log("sending message to background guy");
