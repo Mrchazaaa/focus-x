@@ -1,5 +1,16 @@
 const focusListElement = document.getElementById('focusList');
 
+console.log(); // default or dark
+
+if (chrome.devtools.panels.themeName == "dark") 
+{
+    document.documentElement.setAttribute("theme", "dark");
+}
+
+function updateScroll(newEntryElement){
+    newEntryElement.scrollIntoView();
+}
+
 function addToFocusList(newEntry) {
     var newEntryElement = document.createElement('div');
 
@@ -15,24 +26,9 @@ function addToFocusList(newEntry) {
     newEntryElement.appendChild(newFocusedObjElement);
 
     focusListElement.appendChild(newEntryElement);
+
+    updateScroll(newEntryElement);
 }
-
-addToFocusList({
-    focusedElement: "hey im an active object",
-    timeStamp: "timestamp 1"
-});
-
-addToFocusList({
-    focusedElement: "me too",
-    timeStamp: "timestamp 2"
-});
-
-addToFocusList({
-    focusedElement: "AAAAAAAAAAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaa",
-    timeStamp: "timestamp 3"
-});
-
-console.log("panel is running");
 
 // Create a connection to the background page
 var backgroundConnection = chrome.runtime.connect({
@@ -44,6 +40,7 @@ backgroundConnection.onMessage.addListener(function (message) {
     console.log("recived message");
     console.log(message);
     addToFocusList(message);
+    console.log(chrome.devtools); // default or dark
 });
 
 console.log("sending message to background guy");

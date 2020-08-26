@@ -1,3 +1,25 @@
+:root
+{
+    --foreground: black;
+    --foreground-hover: black;
+    --background-hover: gainsboro;
+    --timestamp-foreground: red;
+    --border: lightgray;
+}
+
+:root[theme="dark"]
+{
+    --foreground: white;
+    --foreground-hover: white;
+    --background-hover: DimGrey;
+    --timestamp: red;
+    --border: lightgray;
+}
+
+* {
+    font-family: Roboto, Ubuntu, Arial, sans-serif;
+}
+
 .timestamp {
     float: left;
 }
@@ -7,15 +29,22 @@
 }
 
 #focusList > div {
-    border-bottom: 1px solid lightgray;
+    /* border-bottom: 1px solid lightgray; */
+    border-bottom: 1px solid var(--border);
     overflow: auto;
-
+    color: var(--foreground);
 }
 
 #focusList > div:hover {
-    background-color: gainsboro;
+    color: var(--foreground-hover);
 }
 
-#focusList > div:focus {
-    background-color: lightgray;
+#focusList > div:hover {
+    /* background-color: gainsboro; */
+    background-color: var(--background-hover);
+    color: var(--foreground-hover);
+}
+
+.timestamp {
+    color: var(--timestamp-foreground);
 }
