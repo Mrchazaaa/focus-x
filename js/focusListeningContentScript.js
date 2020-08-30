@@ -6,8 +6,6 @@ function formatActiveObjectData(activeObject) {
     const closingTag = splitData[1];
     const value = splitData[0];
 
-    console.log(activeObject);
-
     if (innerHTML && activeObject.children.length > 0) {
         return {
             value: value,

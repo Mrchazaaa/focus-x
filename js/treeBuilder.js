@@ -18,18 +18,14 @@ function createNode(nodeContent, timestamp) {
     Prism.highlightElement(closingTagElement[0]);
 
     if (timestamp) {
-        console.log("timestamp");
         treeNode.append($("<span></span>").text(timestamp).addClass("timestamp"));
     }
 
-    console.log(nodeContent)
     if (nodeContent.children) {
-        console.log("parent")
         nodeValue.append([contentElement, ellipsesElement, closingTagElement]);
 
         treeNode.append(createParentNode(nodeValue, nodeContent.children));
     } else {
-        console.log("leaf")
         nodeValue.append([contentElement, closingTagElement]);
 
         treeNode.append(nodeValue.addClass("leafNode"));

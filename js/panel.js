@@ -25,7 +25,6 @@ var backgroundConnection = chrome.runtime.connect({
 
 // Handle responses from the background page, if any
 backgroundConnection.onMessage.addListener(function (message) {
-    console.log(message);
     addToFocusList(message.focusedElement, message.timestamp);
 });
 
