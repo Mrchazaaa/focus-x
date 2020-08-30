@@ -1,0 +1,41 @@
+.timestamp {
+    color: var(--timestamp-foreground);
+}
+
+body {
+    background: hsl(0, 0%, 8%);
+    color: white;
+}
+
+.nodeValue {
+    display: inline;
+}
+
+.childNodeList > .closingTag, .leafNode {
+    margin-left: 0.7em;
+}
+
+.collapseIcon {
+    height: 0.7em;
+    opacity: 0.5;
+}
+
+.rotatedIcon {
+    transform: rotate(90deg);
+}
+
+.childNodeList {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+}
+
+.childNodeList > * {
+    margin-left: 20px;
+}
+
+.codeSnippet {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0px !important;
+}
