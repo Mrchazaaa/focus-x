@@ -1,10 +1,4 @@
-![Extension Icon](images/icon128.png)
 # focus-x
-A simple Chrome DevTools extension to log the inspected tab's currently focused element.
+A simple Chrome DevTools extension which logs the inspected tab's currently focused element. Useful for debugging larger applications with lots of small, greedy components who keep stealing focus from eachother.
 
 ![Extension UI Example](images/UIExample.png)
-
-https://github.com/jonschlinkert/pretty
-https://github.com/googlearchive/code-prettify
-https://highlightjs.org/download/
-https://stackoverflow.com/questions/30945681/collapse-and-expand-tree-structure-in-javascript/30945775
