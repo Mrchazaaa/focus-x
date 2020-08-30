@@ -5,7 +5,9 @@ function createParentNode(nodeValue, children) {
     return [collapseIcon, nodeValue, childContainer];
 }
 
-function createNode(nodeContent) {
+
+
+function createNode(nodeContent, timestamp) {    
     const treeNode = $("<div></div>").addClass("treeNode");
 
     const nodeValue = $("<div></div>").addClass("nodeValue");
@@ -14,6 +16,11 @@ function createNode(nodeContent) {
     const ellipsesElement = $("<span></span>").addClass('ellipses').text('...').css("color", "white");
     const closingTagElement = $("<code></code>").addClass(['language-html', 'codeSnippet', 'closingTag']).text(nodeContent.closingTag);
     Prism.highlightElement(closingTagElement[0]);
+
+    if (timestamp) {
+        console.log("timestamp");
+        treeNode.append($("<span></span>").text(timestamp).addClass("timestamp"));
+    }
 
     console.log(nodeContent)
     if (nodeContent.children) {
@@ -27,6 +34,7 @@ function createNode(nodeContent) {
 
         treeNode.append(nodeValue.addClass("leafNode"));
     }
+
 
     treeNode.find("> .childNodeList").append(closingTagElement.clone());
     

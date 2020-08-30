@@ -1,6 +1,6 @@
-function addToFocusList(data) {
+function addToFocusList(data, timestamp) {
 
-    const newNode = createNode(data);
+    const newNode = createNode(data, timestamp);
 
     newNode.find("ol").hide();
 
@@ -26,7 +26,7 @@ var backgroundConnection = chrome.runtime.connect({
 // Handle responses from the background page, if any
 backgroundConnection.onMessage.addListener(function (message) {
     console.log(message);
-    addToFocusList(message.focusedElement);
+    addToFocusList(message.focusedElement, message.timestamp);
 });
 
 // Tell background script which tab we want to recieve messages from

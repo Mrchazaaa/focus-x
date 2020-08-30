@@ -1,5 +1,12 @@
 .timestamp {
-    color: var(--timestamp-foreground);
+    color: #989788;
+    float: right;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#treeRoot > .treeNode {
+    border-bottom: 1px solid grey;
 }
 
 body {

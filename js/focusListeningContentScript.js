@@ -29,7 +29,7 @@ var sendMessageToBackgroundScript = () => {
             // focusedElement: document.activeElement.outerHTML,
             // focusedElement: document.activeElement,
             focusedElement: formattedData,
-            timeStamp: (new Date()).toLocaleTimeString()
+            timestamp: (new Date()).toLocaleTimeString()
         } 
     );
 }
