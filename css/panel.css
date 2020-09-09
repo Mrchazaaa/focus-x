@@ -5,6 +5,10 @@
     font-weight: bold;
 }
 
+.token {
+    overflow-wrap: break-word;
+}
+
 #treeRoot > .treeNode {
     border-bottom: 1px solid grey;
 }
